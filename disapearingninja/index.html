@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Disapearing Ninja</title>
+    <link rel="stylesheet" href="style.css">
+    <script type = "text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#image1').click(function(){
+                $('#image1').hide();
+            });
+            $('#image2').click(function(){
+                $('#image2').hide();
+            });
+            $('#image3').click(function(){
+                $('#image3').hide();
+            });
+            $('#image4').click(function(){
+                $('#image4').hide();
+            });
+            $('#image5').click(function(){
+                $('#image5').hide();
+            });
+            $('#image6').click(function(){
+                $('#image6').hide();
+            });
+            $('#image7').click(function(){
+                $('#image7').hide();
+            });
+            $('#image8').click(function(){
+                $('#image8').hide();
+            });
+
+            $( "#clickme" ).click(function() {
+                $( "img" ).show( "slow", function() {
+                // Animation complete.
+            });
+});
+
+
+        });
+    </script>
+</head>
+<body>
+<img src = "../../../DOJO_jul16_2019/HTML/Portfolio_images/RUBY.png" id ="image1">
+<img src = "../../../DOJO_jul16_2019/HTML/Portfolio_images/javascript.png" id ="image2">
+<img src = "../../../DOJO_jul16_2019/HTML/Portfolio_images/CSS.png" id ="image3">
+<img src = "../../../DOJO_jul16_2019/HTML/Portfolio_images/iOS-Swift.png" id ="image4">
+<img src = "../../../DOJO_jul16_2019/HTML/Portfolio_images/LAMP.png" id ="image5">
+<img src = "../../../DOJO_jul16_2019/HTML/Portfolio_images/linkedin.png" id ="image6">
+<img src = "../../../DOJO_jul16_2019/HTML/Portfolio_images/jQuery.png" id ="image7">
+<img src = "../../../DOJO_jul16_2019/HTML/Portfolio_images/materialize.png" id ="image8">
+<p></p>
+<button id='clickme'>Restore</button>
+    
+</body>
+</html>

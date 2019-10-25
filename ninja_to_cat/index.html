@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script type = "text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('img').click(function() {
+            console.log('data-alt-src value is', $(this).attr('data-alt-src'));
+        });
+        $('img').click(function() {
+            var src2 = $(this).attr('src2');
+            var alt2 = $(this).attr('alt2');
+            $(this).attr({src: src2, alt: alt2});
+        });
+    });
+    </script>
+</head>
+<body>
+<div id='container'>
+    <img src='img/ninja0.png' src2='img/cat0.png' alt='Ninja 1' alt2='Cat 1'>
+    <img src='img/ninja1.png' src2='img/cat1.png' alt='Ninja 2' alt2='Cat 2'>
+    <img src='img/ninja2.png' src2='img/cat2.png' alt='Ninja 3' alt2='Cat 3'>
+    <img src='img/ninja3.png' src2='img/cat3.png'alt='Ninja 4' alt2='Cat 4'>
+    <img src='img/ninja4.png' src2='img/cat4.png'alt='Ninja 5' alt2='Cat 5'> 
+</div>  
+</body>
+</html>

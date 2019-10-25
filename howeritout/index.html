@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <script type="text/javascript">
+
+    $(document).ready(function(){
+        //use data-* attributes 
+        $(".image-container")
+            .mouseover(function () {
+                $(this).attr('src', $(this).data("hover"));
+            })
+            .mouseout(function () {
+                $(this).attr('src', $(this).data("src"));
+            });
+    });
+
+    </script>
+</head>
+<body>
+  
+      <img src="img/front.png" data-src="img/front.png" data-hover="img/back.png" alt="" class="image-container" />  
+</body>
+</html>

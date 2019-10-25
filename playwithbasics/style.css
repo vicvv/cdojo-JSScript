@@ -1,0 +1,24 @@
+*{
+    outline:1px solid black; 
+   } 
+.top{
+    vertical-align: top;
+    display: inline-block;
+}
+h1{
+    text-align: center;
+}
+p{
+    text-align: center
+}
+button{
+    margin-left: 10%;
+}
+
+.red {
+    color: red;
+  }
+  .green {
+    color: green;
+  }
+

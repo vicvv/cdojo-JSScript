@@ -1,0 +1,206 @@
+<html>
+<head>
+    <title>NinjaSushiMan</title>
+    <style type="text/css">
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .row{
+            line-height: 0;
+        }
+        .wall {
+            background-color: blue;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            
+        }
+        .sushi {
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url(../ninjaman/sushi.png)
+            
+        }
+        .onigiri{
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-image: url('../ninjaman/onigiri.png');
+            background-size: contain;
+        }
+        
+        .blank {
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            
+        }
+
+        #ninjaman {
+            background-color: black;
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            background-image: url(../ninjaman/ninja.gif);
+            position: absolute;
+            /*left: 40px;
+            top: 40px;*/
+        }
+
+        #ghost {
+            background-color: black;
+            height: 30px;
+            width: 30px;
+            display: inline-block;
+            background-image: url(../ninjaman/pumpky.gif);
+            position: absolute;
+            /*left: 40px;
+            top: 40px;*/
+            
+        }
+    </style>
+</head>
+<body>
+    <div id = 'world'></div>
+    <div id='ninjaman'></div>
+    <div id='ghost'></div>
+</body>
+
+<script type="text/javascript">
+
+    
+
+    /*var world = [
+    [1,1,1,1,1,1,1,1,1,1,1],
+    [1,2,2,2,2,3,2,3,2,3,1],
+    [1,2,3,3,1,3,3,2,2,2,1],
+    [1,2,2,2,1,3,2,3,2,3,1],
+    [1,2,2,2,1,3,2,3,2,3,1],
+    [1,2,3,3,1,1,1,2,2,2,1],
+    [1,2,2,2,2,3,2,3,2,3,1],
+    [1,1,1,1,1,1,1,1,1,1,1],
+    ];*/
+
+ function myrandom (width, height){
+    var result = [];
+    var max = 3;
+    var min = 0;
+    for (var i = 0 ; i < width; i++) {
+        result[i] = [];
+        for (var j = 0; j < height; j++) {
+            if (i === 0 | j === height - 1| j === 0| i === width - 1){
+                result[i][j] = 1
+            }
+            //result[i][j`] = (Math.random() * 3 | 0) + 1;
+            else{
+            result[i][j] = Math.floor(Math.random() * (max - min + 1)) + min;
+        }   
+        }
+    }
+    return result;
+}
+// Create a random world with width = 10 & height = 20
+var world = myrandom(10, 20);
+
+    var worldDict = {
+        0: 'blank',
+        1: 'wall',
+        2: 'sushi',
+        3: 'onigiri',
+    }
+
+    function drawWorld(){
+        output = "";
+        for(var row = 0; row < world.length; row++){
+            output += "<div class = 'row'></div>";
+            for(var x = 0; x < world[row].length; x++){
+                output += "<div class = '" + worldDict[world[row][x]] +"'></div>"
+                // worldDict[world[row][x]];
+            }
+            output += "</div>"
+        }
+        document.getElementById('world').innerHTML = output;
+    }
+
+    drawWorld();
+
+    var score = 0;
+
+    var ninjaman = {
+        x:1,
+        y:1
+    }
+
+    var ghost = {
+        x:40,
+        y:10
+    }
+
+    function drawNinjaman(){
+        document.getElementById('ninjaman').style.top = ninjaman.y * 40 + 'px'
+        document.getElementById('ninjaman').style.left = ninjaman.x * 40 + 'px'
+    }
+
+    function drawHohst(){
+        document.getElementById('ghost').style.top = ghost.y * 10 + 'px'
+        document.getElementById('ghost').style.left = ghost.x * 10 + 'px'
+    }
+
+    function findscore(){
+        if (world[ninjaman.y][ninjaman.x] == 2) {
+            score += 9;
+        }
+        else if (world[ninjaman.y][ninjaman.x] == 3) {
+            score += 6;
+        }
+    }
+    drawHohst();
+    drawNinjaman();
+    
+
+    document.onkeydown = function(e){
+        // up = 38, left = 37, down = 40, right = 39
+        if(e.keyCode == 37){
+            if (world[ninjaman.y][ninjaman.x - 1] !=1){
+                ninjaman.x--;
+                ghost.x--;
+                findscore();
+
+            }
+        }
+        if(e.keyCode == 39){
+            if (world[ninjaman.y][ninjaman.x + 1] !=1){    
+                ninjaman.x++;
+                ghost.x++;
+                findscore();
+            }
+        }
+        if(e.keyCode == 40){
+            if (world[ninjaman.y + 1][ninjaman.x] !=1){
+                ninjaman.y++;
+                ghost.y++;
+                findscore();
+            }
+        }
+        if(e.keyCode == 38){
+            if (world[ninjaman.y - 1][ninjaman.x] !=1){
+                ninjaman.y--;
+                ghost.y--;
+                findscore();
+            }
+        }
+        world[ninjaman.y][ninjaman.x] = 0;
+        drawNinjaman();
+        drawHohst();
+        drawWorld();
+        console.log("total score: ", score);
+    }
+
+
+</script>
+</html>

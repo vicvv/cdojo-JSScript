@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JQforms</title>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <script type="text/javascript">
+// submit is use as listener and for hard submit(when we submitting it outside of wht form.)
+    $(document).ready(function(){
+        $('#form1').submit(function(){
+            //.serialize is very important. 
+            console.log($(this).serialize())
+            return falce
+        });
+        ('.btn').click(function(){
+            $('#form1').submit();
+        });
+
+    });
+
+    </script>
+</head>
+<body>
+    <form id='form1' action="proces.py" method="post">
+        First Name  <input type='text' name='first_name'>
+        Last Name   <input type='text' name='last_name'>
+        Email       <input type='text' name='email'>
+                    <input type="submit" value="submit">
+
+    </form>
+
+    <button class='btn'> Click me to use submit outside the form!</button>
+    
+</body>
+</html>

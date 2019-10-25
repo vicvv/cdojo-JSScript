@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Callbacks and Dynamic content</title>
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <script type="text/javascript">
+    
+    function attache_handlers(){
+        $('.alert').click(function(){
+            alert("I was clicked!");
+
+        });
+    }    
+    $(document).ready(function(){
+        attache_handlers() // we just call the above.
+        $('.new_btn').click(function(){
+            console.log("whats going on??")
+            $('#buttons').append("<button class='alert'> I am a dynamic button</button>");
+            attache_handlers();
+        });
+    //calback is nothitg more than calling function from anoter function        
+    });
+
+    </script>
+</head>
+<body>
+    <h1>Static Content</h1>
+        <div>
+            <button class="alert">click me!</button>
+            <button class="alert">click me!</button>
+            <button class="alert">click me!</button>
+            <button class="new_btn">click me to add new butn!</button>
+        </div>
+    <div class="a">
+        <h3>I am old content</h3>
+    </div>
+        <h1>Dynamicly randered Content!</h1>
+    <div id="buttons">
+
+    </div>
+   
+</body>
+</html>

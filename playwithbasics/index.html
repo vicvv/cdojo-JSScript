@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href = "style.css">
+    <script type = "text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#loadimage').click(function() {
+            $('#img1').html("<img src='http://www.onlineartdemos.co.uk/misc_images/on-easel/siberian-tiger-6.jpg'>");
+        });
+        $('#append_to_below_p').click(function(){
+          $('#appme').append (' Appended new taxt now!')
+        })
+        $("#makepred").click(function(){
+            $("#firstpar").toggleClass('green red');
+        });
+    
+    });
+
+    </script>
+
+
+</head>
+<body>
+    <div clas = "top">
+    <h1 id=>ADD CLASS</h1>
+    <button id ="makepred">Add Class</button>
+    <p id="firstpar" class="green">Click the button to add class red to this paragraph!</p>
+    </div>
+    <hr>
+    <div class = "mid">
+        
+        <h1>Slidetoggole</h1>
+        <button id = "loadimage">Slidetoggle</button>
+        <p>click the button to slide a hidden image</p>
+        <div id="img1"></div>
+    </div>
+    <hr>
+    <div class = "last">
+        
+        <H1>Append</H1>
+        <button id ="append_to_below_p">Append</button>
+        <p id="appme">Click the button to append a new paragraph</p>
+    </div>
+    
+
+
+</body>
+</html>
